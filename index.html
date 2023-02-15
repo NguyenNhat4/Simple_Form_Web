@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Nhập thông tin sinh viên</title>
+	<!--Lưu ý chèn js theo thứ tự main cần sử dụng danhsachsinhvien, danhsachsinhvien cần sử dụng sinhvien-->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+
+	<!-- Latest JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+	<div class="logo"></div>
+	<div class="container">
+		<h2>Thông tin sinh viên</h2>
+		<form>
+			<div class="form-group">
+				<label for="masv">Mã SV:</label>
+				<input type="text" class="form-control " id="masv" placeholder="Nhập MaSV" name="mã sinh viên">
+				<p><span id="masv-error" class="text-danger"></span></p>
+			</div>
+			<div class="form-group">
+				<label for="hoten">Họ tên:</label>
+				<input type="text" class="form-control" id="hoten" placeholder="Nhập Họ tên" name="họ tên">
+				<p><span id="hoten-error" class="text-danger"></span></p>
+			</div>
+			<div class="form-group">
+				<label for="cmnd">CMND:</label>
+				<input type="text" class="form-control" id="cmnd" placeholder="Nhập CMND" name="cmnd">
+				<p><span id="cmnd-error" class="text-danger"></span></p>
+			</div>
+			<div class="form-group">
+				<label for="sdt">Điện thoại:</label>
+				<input type="text" class="form-control" id="sdt" placeholder="Nhập SDT" name="sdt">
+				<p><span id="sdt-error" class="text-danger"></span></p>
+
+			</div>
+
+			<div class="form-group">
+				<label for="email">Email:</label>
+				<input type="email" class="form-control" id="email" placeholder="Nhập Email" name="email">
+				<p><span id="email-error" class="text-danger"></span></p>
+
+			</div>
+			<div class="form-group">
+				<label for="Toan">Toán:</label>
+				<input type="number" class="form-control" id="Toan" placeholder="Nhập Toán" name="điểm Toán">
+				<p><span id="Toan-error" class="text-danger"></span></p>
+
+			</div>
+			<div class="form-group">
+				<label for="Ly">Lý:</label>
+				<input type="number" class="form-control" id="Ly" placeholder="Nhập Lý" name="điểm Lý">
+				<p><span id="Ly-error" class="text-danger"></span></p>
+
+			</div>
+			<div class="form-group">
+				<label for="Hoa">Hoá:</label>
+				<input type="number" class="form-control" id="Hoa" placeholder="Nhập Hóa" name="điểm Hóa">
+				<p><span id="Hoa-error" class="text-danger"></span></p>
+
+			</div>
+			<button type="button" class="btn btn-success" onclick="ThemSinhVien()">Thêm sinh viên</button>
+			
+		</form>
+		<div style="float: right;">  
+			<button class="btn btn-success" onclick="SetStorage()">Lưu vào storage</button>
+			<button class="btn btn-primary" onclick="GetStorage()">Lấy Storage</button>
+			<button class="btn btn-danger" onclick="XoaSinhVien()">Xóa trong storage</button>
+			<div>
+				<p style="float: right;" id="chon_SV" class="text-danger mb-0 mt-1"></p>
+			</div>
+		</div>
+	</div>
+
+	<!--table bootstrap 4 -->
+	<div class="clearfix"></div>
+	<br>
+	<div class="container">
+		<div class="right">
+			<div class="input-group">
+
+				<input type="text" id="tukhoa" onkeyup="TimKiemSinhVien()" onchange="TimKiemSinhVien()"
+					class="form-control" placeholder="Tìm bằng mã sinh viên">
+				<span class="input-group-btn">
+					<button class="btn btn-warning" id="btn_timkiem" onclick="TimKiemSinhVien()" type="button">Tìm kiếm</button>
+				</span>
+			</div>
+		
+			<div><p style="font-size: 16px;" class="text-danger mt-2" id="error_timkiem"></p></div>
+			
+			<div class="alert alert-success" id="ThongBao"></div>
+		</div>
+		<h2>Danh sách sinh viên</h2>
+		<table id="TableSinhVien" class="table">
+			<thead>
+				<tr>
+					<th></th>
+					<th>MaSV</th>
+					<th>HoTen</th>
+					<th>Email</th>
+					<th>CMND</th>
+					<th>Điện thoại</th>
+					<th>Điểm TB</th>
+					<th>Xếp loại</th>
+				</tr>
+			</thead>
+			<tbody id="tbodySinhVien">
+			</tbody>
+		</table>
+	</div>
+	<script type="text/javascript" src="./js/Validation.js"></script>
+	<script type="text/javascript" src="./js/sinhvien.js"></script>
+	<script type="text/javascript" src="./js/danhsachsv.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+</body>
+
+</html>
